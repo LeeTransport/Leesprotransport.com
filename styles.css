@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.5); /* Semi-transparent background for glass effect */
     color: #fff;
     padding: 1em 0;
     text-align: center;
@@ -16,6 +16,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px); /* Added blur effect for frosted-glass appearance */
 }
 
 nav {
