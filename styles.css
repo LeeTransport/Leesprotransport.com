@@ -16,7 +16,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(3px); /* Added blur effect for frosted-glass appearance */
+    backdrop-filter: blur(0px); /* Added blur effect for frosted-glass appearance */
 }
 
 nav {
