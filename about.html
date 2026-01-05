@@ -3,546 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Lee's Pro Transport LLC | Dixon, IL</title>
+    <title>About Us | Lee's Pro Transport LLC</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
+        /* --- VARIABLES & RESET (Matches Index/Services) --- */
         :root {
-            --primary: #155724;
-            --primary-light: #82ff84;
-            --accent: #28a745;
-            --bg: #f4f4f9;
-            --text: #333333;
-            --muted: #6c757d;
-            --card-bg: #ffffff;
-            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
-            --radius-lg: 18px;
+            --primary: #1b4d3e;       
+            --primary-dark: #123329;  
+            --accent: #2e8b57;        
+            --light-green: #e8f5e9;   
+            
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f9fafb;
+            --white: #ffffff;
+            
+            --radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            line-height: 1.2;
         }
 
-        /* Header */
+        a { text-decoration: none; transition: all 0.2s ease; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
         header {
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: linear-gradient(90deg, rgba(192,192,192,0.95), rgba(211,211,211,0.95));
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .header-inner {
-            max-width: 1100px;
+        .header-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .brand {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .brand img {
-            height: 60px;
+        .logo-area img {
+            height: 55px;
+            width: auto;
         }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-text h1 {
-            margin: 0;
-            font-size: 1.3rem;
+        .logo-text h1 {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #222;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .brand-text span {
-            font-size: 0.8rem;
-            color: var(--muted);
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Navigation Bar */
         nav {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(90deg, var(--primary-light), var(--primary));
-            padding: 6px 14px;
-            border-radius: 999px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            gap: 5px;
+            background: var(--bg-body);
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid #e5e7eb;
         }
 
         nav a {
-            color: white;
+            color: var(--text-main);
             font-size: 0.9rem;
-            padding: 7px 14px;
-            border-radius: 999px;
             font-weight: 500;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 50px;
         }
 
         nav a:hover {
-            background-color: #0e5220;
-            transform: translateY(-1px);
+            color: var(--primary);
+            background-color: #fff;
+            box-shadow: var(--shadow-sm);
         }
 
         nav a.active {
-            background-color: rgba(0, 0, 0, 0.25);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Hero Section */
-        .hero {
+        /* --- PAGE HERO --- */
+        .page-hero {
             position: relative;
-            background-image: url('Designer.png'); /* Make sure this exists */
+            background: linear-gradient(rgba(18, 51, 41, 0.9), rgba(18, 51, 41, 0.8)), url('Designer.png'); 
             background-size: cover;
             background-position: center;
-            min-height: 55vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(130, 255, 132, 0.5), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(21, 87, 36, 0.85), rgba(0, 0, 0, 0.9));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #ffffff;
+            padding: 60px 20px;
             text-align: center;
+            color: white;
         }
 
-        .hero-content h2 {
-            margin: 0 0 12px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+        .page-hero h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
         }
 
-        .hero-content p {
-            margin: 0;
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: #f1f3f5;
+        .page-hero p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* Main Layout */
-        main {
-            padding: 40px 20px 60px;
-        }
+        /* --- SECTIONS --- */
+        .section { padding: 60px 20px; }
+        .bg-white { background-color: var(--white); }
+        .bg-light { background-color: var(--bg-body); }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section {
+        .section-header {
             margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        .badge {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
 
         .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--muted);
+            font-size: 1rem;
+            color: var(--text-muted);
         }
 
-        /* About Content */
-        .about-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            box-shadow: var(--shadow-soft);
-            line-height: 1.8;
+        /* --- STORY & INFO GRID --- */
+        .story-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #f3f4f6;
+            margin-bottom: 40px;
+        }
+
+        .story-box p { margin-bottom: 15px; }
+        .story-box p:last-child { margin-bottom: 0; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f3f4f6;
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
+        
+        .info-list strong { color: var(--text-main); font-weight: 600; }
 
-        .about-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.15rem;
-        }
-
-        .about-grid {
+        /* --- VALUES GRID --- */
+        .values-grid {
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .details-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 18px 20px;
-            box-shadow: var(--shadow-soft);
+        .value-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .value-item:hover { transform: translateY(-5px); }
+
+        .value-item h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
             font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        .details-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.05rem;
-        }
-
-        .details-card p {
-            margin: 6px 0;
-        }
-
-        .details-card strong {
-            font-weight: 600;
-        }
-
-        /* Values / Pillars */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .pillar-card {
-            background: #ffffff;
-            border-radius: var(--radius-lg);
-            padding: 14px 16px;
-            box-shadow: var(--shadow-soft);
-            font-size: 0.88rem;
-        }
-
-        .pillar-label {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .pillar-text {
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        /* CTA Strip */
-        .cta-strip {
-            margin-top: 24px;
-            padding: 16px 18px;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(135deg, rgba(130, 255, 132, 0.15), rgba(21, 87, 36, 0.08));
+        /* --- CTA BOX --- */
+        .cta-box {
+            background: var(--primary);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            gap: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-box h3 { color: white; margin-bottom: 5px; }
+        .cta-box p { color: #a7f3d0; margin-bottom: 10px; }
+
+        .cta-link {
+            background: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .cta-link:hover {
+            background: #f0fdf4;
+            transform: scale(1.02);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111827; 
+            color: #9ca3af;
+            padding: 60px 20px 30px;
             font-size: 0.9rem;
         }
 
-        .cta-strip strong {
-            color: var(--primary);
-        }
-
-        .cta-strip a {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(90deg, #f4f4f9, #e4e4e4);
-            padding: 16px 20px 22px;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .footer-inner {
+        .footer-content {
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-            gap: 18px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        .footer-title {
-            font-weight: 600;
-            margin-bottom: 4px;
+        .footer-brand h4 { color: white; font-size: 1.2rem; margin-bottom: 15px; }
+        .footer-contact p { margin-bottom: 8px; }
+        .footer-contact a { color: #fff; opacity: 0.8; }
+        .footer-contact a:hover { opacity: 1; color: #4ade80; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
-        .footer-contact p {
-            margin: 2px 0;
-        }
-
-        .footer-contact a {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .footer-meta {
-            text-align: right;
-            color: var(--muted);
-        }
-
-        /* Back to Top Button */
+        /* Back to top */
         #back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: var(--accent);
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+            z-index: 100;
         }
-        #back-to-top:hover {
-            background-color: #1c7430;
-        }
+        #back-to-top:hover { transform: translateY(-3px); background-color: var(--accent); }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .header-inner {
-                justify-content: center;
-            }
-            .footer-inner {
-                grid-template-columns: minmax(0, 1fr);
-                text-align: left;
-            }
-            .footer-meta {
-                text-align: left;
-            }
-            .about-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .brand img {
-                height: 52px;
-            }
-            .brand-text h1 {
-                font-size: 1.05rem;
-            }
-            nav {
-                width: 100%;
-                justify-content: center;
-                border-radius: 999px;
-            }
-            .hero {
-                min-height: 50vh;
-            }
-            .hero-content h2 {
-                font-size: 1.9rem;
-            }
-            .pillars-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 540px) {
-            main {
-                padding: 28px 14px 50px;
-            }
-            .pillars-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .header-container { flex-direction: column; gap: 15px; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap;}
+            .info-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const backToTop = document.createElement('button');
-            backToTop.id = 'back-to-top';
-            backToTop.innerHTML = '↑';
-            document.body.appendChild(backToTop);
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 250) {
-                    backToTop.style.display = 'inline-flex';
-                } else {
-                    backToTop.style.display = 'none';
-                }
-            });
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
 </head>
 <body>
+
+    <button id="back-to-top" title="Go to top">↑</button>
+
     <header>
-        <div class="header-inner">
-            <div class="brand">
+        <div class="header-container">
+            <div class="logo-area">
                 <img src="Picture1.png" alt="Lee's Pro Transport LLC Logo">
-                <div class="brand-text">
+                <div class="logo-text">
                     <h1>Lee's Pro Transport LLC</h1>
-                    <span>Dixon, Illinois • Professional Towing & Freight Services</span>
+                    <span>Dixon, IL • Freight & Logistics</span>
                 </div>
             </div>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="about.html" class="active">About Us</a>
+                <a href="about.html" class="active">About</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Get to Know Lee's Pro Transport LLC</h2>
-            <p>Rooted in Dixon, Illinois, Lee's Pro Transport LLC was created to provide dependable towing, freight, and local transportation services with a strong focus on safety, reliability, and customer care.</p>
+    <section class="page-hero">
+        <div class="container">
+            <h2>Get to Know Us</h2>
+            <p>Rooted in Dixon, Illinois, Lee's Pro Transport LLC was created to provide dependable towing, freight, and local transportation services with a strong focus on safety and customer care.</p>
         </div>
     </section>
 
-    <main>
+    <section class="section bg-white">
         <div class="container">
-            <!-- Company Story -->
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Our Story</h2>
-                    <p class="section-subtitle">From a simple idea to a trusted transportation partner in Dixon, IL.</p>
-                </div>
-                <div class="about-card">
-                    <h3>Who We Are</h3>
-                    <p>Lee's Pro Transport is a newly established general transportation business located at <strong>815 E 3rd St, Dixon, IL 61021</strong>. Dedicated to providing reliable and efficient transportation services, our company is poised to meet the diverse logistical needs of both individuals and businesses in the region.</p>
-                    <p>With a focus on punctuality, safety, and customer satisfaction, Lee's Pro Transport aims to set a strong benchmark in the transportation industry. Our primary services include freight transportation, local delivery, high-quality towing services, and specialized logistics solutions.</p>
-                    <p>The strategic location in Dixon, IL, coupled with our commitment to leveraging modern tools and equipment, positions us as a dependable partner in the local and regional supply chain.</p>
-                </div>
-            </section>
-
-            <!-- Company Details & Structure -->
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Company Details</h2>
-                    <p class="section-subtitle">Built on a solid structure with protection and transparency.</p>
-                </div>
-                <div class="about-grid">
-                    <div class="details-card">
-                        <h3>Business Information</h3>
-                        <p><strong>Business Name:</strong> Lee's Pro Transport LLC</p>
-                        <p><strong>Address:</strong> 815 E 3rd St, Dixon, IL 61021</p>
-                        <p><strong>Phone:</strong> 779-251-8373</p>
-                        <p><strong>Business Structure:</strong> Limited Liability Company (LLC)</p>
-                        <p>Lee's Pro Transport was founded to simplify transportation and logistics for our clients. Our operations are based in Dixon, a strategic hub that provides access to major transportation routes, enabling efficient delivery and freight services.</p>
-                        <p>As an LLC, we offer flexibility in management, limited liability protection, and operational transparency. This structure helps safeguard the business and provides peace of mind to our customers and partners.</p>
-                        <p>Additionally, we are fully insured, including <strong>$100,000 in cargo coverage</strong>, ensuring the safety and security of our clients' goods from pickup to delivery.</p>
-                    </div>
-
-                    <div class="details-card">
-                        <h3>What We Stand For</h3>
-                        <p>Every service we provide — from towing and roadside assistance to freight transportation and local delivery — is guided by a simple promise: <strong>treat every load, vehicle, and client with care and respect.</strong></p>
-                        <p>We understand that when you call us, you are trusting us with something important: your vehicle, your cargo, your schedule, or your business operations. That trust is what drives our commitment to dependable, honest, and professional service.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Values / Pillars -->
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Our Core Values</h2>
-                    <p class="section-subtitle">The principles that guide Lee's Pro Transport every day.</p>
-                </div>
-                <div class="pillars-grid">
-                    <div class="pillar-card">
-                        <div class="pillar-label">Reliability</div>
-                        <div class="pillar-text">
-                            Clients depend on us for timely towing, freight, and local deliveries. We take that responsibility seriously and work to keep our commitments.
-                        </div>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-label">Safety</div>
-                        <div class="pillar-text">
-                            From proper load securement to careful roadside operations, safety is at the center of every decision we make.
-                        </div>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-label">Customer Focus</div>
-                        <div class="pillar-text">
-                            We listen, communicate clearly, and aim to make every interaction straightforward and stress-free for our customers.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cta-strip">
-                    <div>
-                        <strong>Want to learn more about working with Lee's Pro Transport?</strong><br>
-                        Reach out today to discuss how we can support your towing, freight, or local transportation needs.
-                    </div>
-                    <div>
-                        <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a> ·
-                        <a href="tel:+17792518373">(779) 251-8373</a>
-                    </div>
-                </div>
-            </section>
+            <div class="section-header">
+                <span class="badge">Our Story</span>
+                <h2 class="section-title">Trusted Logistics Partner</h2>
+                <p class="section-subtitle">From a simple idea to a trusted transportation provider.</p>
+            </div>
+            
+            <div class="story-box">
+                <p>Lee's Pro Transport is a newly established general transportation business located at <strong>815 E 3rd St, Dixon, IL 61021</strong>. Dedicated to providing reliable and efficient transportation services, our company is poised to meet the diverse logistical needs of both individuals and businesses in the region.</p>
+                <p>With a focus on punctuality, safety, and customer satisfaction, Lee's Pro Transport aims to set a strong benchmark in the transportation industry. Our primary services include freight transportation, local delivery, high-quality towing services, and specialized logistics solutions.</p>
+                <p>The strategic location in Dixon, IL, coupled with our commitment to leveraging modern tools and equipment, positions us as a dependable partner in the local and regional supply chain.</p>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Business Information</h3>
+                    <ul class="info-list">
+                        <li><strong>Structure:</strong> Limited Liability Company (LLC)</li>
+                        <li><strong>Location:</strong> 815 E 3rd St, Dixon, IL 61021</li>
+                        <li><strong>Phone:</strong> (779) 251-8373</li>
+                        <li><strong>Insurance:</strong> Fully insured with $100,000 cargo coverage</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #6b7280;">
+                        As an LLC, we offer flexibility in management, limited liability protection, and operational transparency. This structure safeguards the business and provides peace of mind to our customers.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>What We Stand For</h3>
+                    <p style="margin-bottom: 15px; color: #4b5563;">Every service we provide — from towing and roadside assistance to freight transportation and local delivery — is guided by a simple promise: <strong>treat every load, vehicle, and client with care and respect.</strong></p>
+                    <p style="color: #4b5563;">We understand that when you call us, you are trusting us with something important: your vehicle, your cargo, your schedule, or your business operations. That trust is what drives our commitment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Core Values</h2>
+                <p class="section-subtitle">The principles that guide us every day.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>Reliability</h4>
+                    <p>Clients depend on us for timely towing, freight, and local deliveries. We take that responsibility seriously.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Safety</h4>
+                    <p>From proper load securement to careful roadside operations, safety is at the center of every decision we make.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Customer Focus</h4>
+                    <p>We listen, communicate clearly, and aim to make every interaction straightforward and stress-free.</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div>
+                    <h3>Work with Lee's Pro Transport</h3>
+                    <p>Reach out today to discuss how we can support your towing, freight, or local transportation needs.</p>
+                </div>
+                <div>
+                    <a href="tel:+17792518373" class="cta-link">Call (779) 251-8373</a>
+                    <a href="mailto:Leestransport95@gmail.com" class="cta-link" style="background: transparent; border: 2px solid white; color: white;">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-inner">
-            <div class="footer-contact">
-                <div class="footer-title">Lee's Pro Transport LLC</div>
-                <p>Address: 815 E 3rd St, Dixon, IL 61021</p>
-                <p>Phone: <a href="tel:+17792518373">+1 (779) 251-8373</a></p>
-                <p>Email: <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Lee's Pro Transport LLC</h4>
+                <div class="footer-contact">
+                    <p>815 E 3rd St, Dixon, IL 61021</p>
+                    <p><a href="tel:+17792518373">(779) 251-8373</a></p>
+                    <p><a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
+                </div>
             </div>
-            <div class="footer-meta">
-                <p>&copy; 2025 Lee's Pro Transport LLC. All rights reserved.</p>
-                <p>Serving Dixon, IL and surrounding communities.</p>
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
+                <p>Professional Towing, Freight & Logistics.</p>
+                <p style="opacity: 0.6;">Serving Dixon, IL and surrounding communities.</p>
             </div>
         </div>
+        <div class="footer-bottom">
+            &copy; 2025 Lee's Pro Transport LLC. All rights reserved.
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
