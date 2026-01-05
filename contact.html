@@ -3,576 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Lee's Pro Transport LLC | Dixon, IL</title>
+    <title>Contact Us | Lee's Pro Transport LLC</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
+        /* --- VARIABLES & RESET (Matches Previous Pages) --- */
         :root {
-            --primary: #155724;
-            --primary-light: #82ff84;
-            --accent: #28a745;
-            --bg: #f4f4f9;
-            --text: #333333;
-            --muted: #6c757d;
-            --card-bg: #ffffff;
-            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
-            --radius-lg: 18px;
+            --primary: #1b4d3e;       
+            --primary-dark: #123329;  
+            --accent: #2e8b57;        
+            --light-green: #e8f5e9;   
+            
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f9fafb;
+            --white: #ffffff;
+            
+            --radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            line-height: 1.2;
         }
 
-        /* Header */
+        a { text-decoration: none; transition: all 0.2s ease; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
         header {
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: linear-gradient(90deg, rgba(192,192,192,0.95), rgba(211,211,211,0.95));
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .header-inner {
-            max-width: 1100px;
+        .header-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .brand {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .brand img {
-            height: 60px;
+        .logo-area img {
+            height: 55px;
+            width: auto;
         }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-text h1 {
-            margin: 0;
-            font-size: 1.3rem;
+        .logo-text h1 {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #222;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .brand-text span {
-            font-size: 0.8rem;
-            color: var(--muted);
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Navigation Bar */
         nav {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(90deg, var(--primary-light), var(--primary));
-            padding: 6px 14px;
-            border-radius: 999px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            gap: 5px;
+            background: var(--bg-body);
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid #e5e7eb;
         }
 
         nav a {
-            color: white;
+            color: var(--text-main);
             font-size: 0.9rem;
-            padding: 7px 14px;
-            border-radius: 999px;
             font-weight: 500;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 50px;
         }
 
         nav a:hover {
-            background-color: #0e5220;
-            transform: translateY(-1px);
+            color: var(--primary);
+            background-color: #fff;
+            box-shadow: var(--shadow-sm);
         }
 
         nav a.active {
-            background-color: rgba(0, 0, 0, 0.25);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Hero Section */
-        .hero {
+        /* --- PAGE HERO --- */
+        .page-hero {
             position: relative;
-            background-image: url('Designer.png'); /* Make sure this exists */
+            background: linear-gradient(rgba(18, 51, 41, 0.9), rgba(18, 51, 41, 0.8)), url('Designer.png'); 
             background-size: cover;
             background-position: center;
-            min-height: 55vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(130, 255, 132, 0.5), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(21, 87, 36, 0.85), rgba(0, 0, 0, 0.9));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #ffffff;
+            padding: 60px 20px;
             text-align: center;
+            color: white;
         }
 
-        .hero-content h2 {
-            margin: 0 0 12px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+        .page-hero h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
         }
 
-        .hero-content p {
-            margin: 0;
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: #f1f3f5;
+        .page-hero p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .hero-owner {
-            margin-top: 10px;
+        .owner-badge {
+            display: inline-block;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
             font-size: 0.9rem;
-            color: #e9ecef;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Main Layout */
-        main {
-            padding: 40px 20px 60px;
-        }
-
+        /* --- SECTIONS & CONTAINER --- */
+        .section { padding: 60px 20px; }
+        .bg-white { background-color: var(--white); }
+        
         .container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        /* Contact Grid */
-        .contact-grid {
+        /* --- CONTACT LAYOUT --- */
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-            gap: 20px;
+            grid-template-columns: 1fr 1.5fr; /* Info is smaller, form is larger */
+            gap: 0; /* No gap because we want them to touch like a card */
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden; /* Keeps child elements inside rounded corners */
+            border: 1px solid #e5e7eb;
         }
 
-        .contact-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            box-shadow: var(--shadow-soft);
-            font-size: 0.95rem;
-            line-height: 1.8;
+        /* LEFT SIDE: INFO PANEL */
+        .info-panel {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Decorative circle behind info */
+        .info-panel::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
         }
 
-        .contact-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.1rem;
+        .info-panel h3 { color: white; margin-bottom: 20px; font-size: 1.5rem; }
+        .info-panel p { color: #d1fae5; margin-bottom: 30px; line-height: 1.6; }
+
+        .contact-detail {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
         }
 
-        .contact-card p {
-            margin: 6px 0;
-        }
-
-        .contact-card a {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        .hours-list {
-            list-style: none;
-            padding: 0;
-            margin: 8px 0 0;
-            font-size: 0.9rem;
-        }
-
-        .hours-list li {
-            margin-bottom: 4px;
-        }
-
-        .owner-tag {
-            display: inline-block;
-            margin-top: 6px;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        /* Simple Contact Form (Front-end only) */
-        .contact-form {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            box-shadow: var(--shadow-soft);
-            font-size: 0.9rem;
-        }
-
-        .contact-form h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .form-row {
-            margin-bottom: 12px;
-        }
-
-        .form-row label {
+        .contact-icon { font-size: 1.2rem; }
+        
+        .contact-text label {
             display: block;
-            margin-bottom: 4px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 3px;
+        }
+        
+        .contact-text a, .contact-text span {
+            color: white;
             font-weight: 500;
-            color: #333;
+            font-size: 1.05rem;
         }
 
-        .form-row input,
-        .form-row textarea {
-            width: 100%;
-            padding: 8px 10px;
-            border-radius: 10px;
-            border: 1px solid #ced4da;
-            font-family: inherit;
+        /* RIGHT SIDE: FORM PANEL */
+        .form-panel {
+            padding: 50px 40px;
+            background: var(--white);
+        }
+
+        .form-panel h3 { margin-bottom: 20px; color: var(--primary); }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-main);
             font-size: 0.9rem;
         }
 
-        .form-row textarea {
-            resize: vertical;
-            min-height: 90px;
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
         }
 
-        .form-row input:focus,
-        .form-row textarea:focus {
+        .form-control:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(21, 87, 36, 0.15);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
         }
 
         .btn-submit {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 9px 18px;
-            border-radius: 999px;
+            background-color: var(--primary);
+            color: white;
             border: none;
-            cursor: pointer;
-            background: linear-gradient(135deg, #82ff84, #28a745);
-            color: #0b2e13;
+            padding: 12px 30px;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 8px 20px rgba(21, 87, 36, 0.35);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-md);
         }
 
         .btn-submit:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 26px rgba(21, 87, 36, 0.45);
+            background-color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        /* CTA Strip */
-        .cta-strip {
-            margin-top: 24px;
-            padding: 16px 18px;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(135deg, rgba(130, 255, 132, 0.15), rgba(21, 87, 36, 0.08));
+        /* EMERGENCY STRIP */
+        .emergency-strip {
+            margin-top: 50px;
+            background: #fff;
+            border: 2px solid #fee2e2;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-strip strong { color: #dc2626; font-size: 1.1rem; }
+        .emergency-btn {
+            background: #dc2626;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        .emergency-btn:hover { background: #b91c1c; }
+
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111827; 
+            color: #9ca3af;
+            padding: 60px 20px 30px;
             font-size: 0.9rem;
         }
 
-        .cta-strip strong {
-            color: var(--primary);
-        }
-
-        .cta-strip a {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(90deg, #f4f4f9, #e4e4e4);
-            padding: 16px 20px 22px;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .footer-inner {
+        .footer-content {
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-            gap: 18px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        .footer-title {
-            font-weight: 600;
-            margin-bottom: 4px;
+        .footer-brand h4 { color: white; font-size: 1.2rem; margin-bottom: 15px; }
+        .footer-contact p { margin-bottom: 8px; }
+        .footer-contact a { color: #fff; opacity: 0.8; }
+        .footer-contact a:hover { opacity: 1; color: #4ade80; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
-        .footer-contact p {
-            margin: 2px 0;
-        }
-
-        .footer-contact a {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .footer-meta {
-            text-align: right;
-            color: var(--muted);
-        }
-
-        /* Back to Top Button */
+        /* Back to top */
         #back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: var(--accent);
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+            z-index: 100;
         }
-        #back-to-top:hover {
-            background-color: #1c7430;
-        }
+        #back-to-top:hover { transform: translateY(-3px); background-color: var(--accent); }
 
-        /* Responsive Design */
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            .header-inner {
-                justify-content: center;
-            }
-            .footer-inner {
-                grid-template-columns: minmax(0, 1fr);
-                text-align: left;
-            }
-            .footer-meta {
-                text-align: left;
-            }
-            .contact-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .info-panel { padding: 40px; }
+            .form-panel { padding: 40px 20px; }
         }
 
         @media (max-width: 768px) {
-            .brand img {
-                height: 52px;
-            }
-            .brand-text h1 {
-                font-size: 1.05rem;
-            }
-            nav {
-                width: 100%;
-                justify-content: center;
-                border-radius: 999px;
-            }
-            .hero {
-                min-height: 50vh;
-            }
-            .hero-content h2 {
-                font-size: 1.9rem;
-            }
-        }
-
-        @media (max-width: 540px) {
-            main {
-                padding: 28px 14px 50px;
-            }
+            .header-container { flex-direction: column; gap: 15px; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap;}
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const backToTop = document.createElement('button');
-            backToTop.id = 'back-to-top';
-            backToTop.innerHTML = '↑';
-            document.body.appendChild(backToTop);
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 250) {
-                    backToTop.style.display = 'inline-flex';
-                } else {
-                    backToTop.style.display = 'none';
-                }
-            });
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
 </head>
 <body>
+
+    <button id="back-to-top" title="Go to top">↑</button>
+
     <header>
-        <div class="header-inner">
-            <div class="brand">
+        <div class="header-container">
+            <div class="logo-area">
                 <img src="Picture1.png" alt="Lee's Pro Transport LLC Logo">
-                <div class="brand-text">
+                <div class="logo-text">
                     <h1>Lee's Pro Transport LLC</h1>
-                    <span>Dixon, Illinois • Professional Towing & Freight Services</span>
+                    <span>Dixon, IL • Freight & Logistics</span>
                 </div>
             </div>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="about.html">About Us</a>
+                <a href="about.html">About</a>
                 <a href="contact.html" class="active">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Contact Lee's Pro Transport LLC</h2>
-            <p>Whether you need towing, freight transportation, local delivery, or seasonal services, we’re here to help. Reach out today to schedule service or request more information.</p>
-            <div class="hero-owner">Owner: <strong>Reilly Lee</strong></div>
+    <section class="page-hero">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Whether you need towing, freight transportation, local delivery, or seasonal services, we’re here to help.</p>
+            <div class="owner-badge">Owner: Reilly Lee</div>
         </div>
     </section>
 
-    <main>
+    <section class="section">
         <div class="container">
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Get in Touch</h2>
-                    <p class="section-subtitle">You can call, email, or send us a message using the form below.</p>
-                </div>
-
-                <div class="contact-grid">
-                    <!-- Contact Info -->
-                    <div class="contact-card">
-                        <h3>Contact Information</h3>
-                        <p><strong>Address:</strong><br>815 E 3rd St, Dixon, IL 61021</p>
-                        <p><strong>Phone:</strong><br><a href="tel:+17792518373">+1 779-251-8373</a></p>
-                        <p><strong>Email:</strong><br><a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
-                        <p><strong>Hours:</strong></p>
-                        <ul class="hours-list">
-                            <li>Monday – Sunday: 9:00 AM to 3:00 PM</li>
-                        </ul>
-                        <p class="owner-tag">Owner: Reilly Lee</p>
-                    </div>
-
-                    <!-- Simple Contact Form -->
-                    <div class="contact-form">
-                        <h3>Send Us a Message</h3>
-                        <form>
-                            <div class="form-row">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name">
-                            </div>
-                            <div class="form-row">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-                            </div>
-                            <div class="form-row">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Your email address">
-                            </div>
-                            <div class="form-row">
-                                <label for="message">How can we help?</label>
-                                <textarea id="message" name="message" placeholder="Tell us briefly what you need (towing, freight, delivery, snow removal, storage, etc.)"></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit">Submit Inquiry</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="cta-strip">
+            
+            <div class="contact-wrapper">
+                <div class="info-panel">
                     <div>
-                        <strong>Need urgent towing or roadside assistance?</strong><br>
-                        For the fastest response, please call us directly at <a href="tel:+17792518373">(779) 251-8373</a>.
-                    </div>
-                    <div>
-                        Or email us anytime at <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a>.
+                        <h3>Get in Touch</h3>
+                        <p>We are available for scheduled freight and delivery, as well as emergency towing services.</p>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <label>Location</label>
+                                <span>815 E 3rd St, Dixon, IL 61021</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <label>Phone</label>
+                                <a href="tel:+17792518373">(779) 251-8373</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <label>Email</label>
+                                <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-text">
+                                <label>Business Hours</label>
+                                <span>Mon – Sun: 9:00 AM – 3:00 PM</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+
+                <div class="form-panel">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="(555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" class="form-control">
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="towing">Towing / Roadside</option>
+                                <option value="freight">Freight Transport</option>
+                                <option value="delivery">Local Delivery</option>
+                                <option value="snow">Snow Removal</option>
+                                <option value="storage">Storage</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can we help?</label>
+                            <textarea id="message" class="form-control" placeholder="Please describe your load, vehicle, or question..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="emergency-strip">
+                <strong>🚨 Need immediate towing or roadside help?</strong>
+                <a href="tel:+17792518373" class="emergency-btn">Call Now: (779) 251-8373</a>
+            </div>
+
         </div>
-    </main>
+    </section>
 
     <footer>
-        <div class="footer-inner">
-            <div class="footer-contact">
-                <div class="footer-title">Lee's Pro Transport LLC</div>
-                <p>Address: 815 E 3rd St, Dixon, IL 61021</p>
-                <p>Phone: <a href="tel:+17792518373">+1 (779) 251-8373</a></p>
-                <p>Email: <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Lee's Pro Transport LLC</h4>
+                <div class="footer-contact">
+                    <p>815 E 3rd St, Dixon, IL 61021</p>
+                    <p><a href="tel:+17792518373">(779) 251-8373</a></p>
+                    <p><a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
+                </div>
             </div>
-            <div class="footer-meta">
-                <p>&copy; 2025 Lee's Pro Transport LLC. All rights reserved.</p>
-                <p>Serving Dixon, IL and surrounding communities.</p>
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
+                <p>Professional Towing, Freight & Logistics.</p>
+                <p style="opacity: 0.6;">Serving Dixon, IL and surrounding communities.</p>
             </div>
         </div>
+        <div class="footer-bottom">
+            &copy; 2025 Lee's Pro Transport LLC. All rights reserved.
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
