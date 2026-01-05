@@ -3,604 +3,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lee's Pro Transport LLC | Towing, Freight & Logistics in Dixon, IL</title>
+    <title>Lee's Pro Transport LLC | Towing, Freight & Logistics</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
+        /* --- VARIABLES & RESET --- */
         :root {
-            --primary: #155724;
-            --primary-light: #82ff84;
-            --accent: #28a745;
-            --bg: #f4f4f9;
-            --text: #333333;
-            --muted: #6c757d;
-            --card-bg: #ffffff;
-            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
-            --radius-lg: 18px;
+            /* Corporate Green Palette */
+            --primary: #1b4d3e;       /* Deep Forest Green */
+            --primary-dark: #123329;  /* Darker Green for hover */
+            --accent: #2e8b57;        /* Sea Green for highlights */
+            --light-green: #e8f5e9;   /* Very light green for backgrounds */
+            
+            /* Neutrals */
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f9fafb;
+            --white: #ffffff;
+            
+            /* UI Elements */
+            --radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            line-height: 1.2;
         }
 
-        /* Header */
+        a { text-decoration: none; transition: all 0.2s ease; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
         header {
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: linear-gradient(90deg, rgba(192,192,192,0.95), rgba(211,211,211,0.95));
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .header-inner {
-            max-width: 1100px;
+        .header-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .brand {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .brand img {
-            height: 60px;
+        .logo-area img {
+            height: 55px;
+            width: auto;
         }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-text h1 {
-            margin: 0;
-            font-size: 1.3rem;
+        .logo-text h1 {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #222;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .brand-text span {
-            font-size: 0.8rem;
-            color: var(--muted);
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Navigation Bar */
         nav {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(90deg, var(--primary-light), var(--primary));
-            padding: 6px 14px;
-            border-radius: 999px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            gap: 5px;
+            background: var(--bg-body);
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid #e5e7eb;
         }
 
         nav a {
-            color: white;
+            color: var(--text-main);
             font-size: 0.9rem;
-            padding: 7px 14px;
-            border-radius: 999px;
             font-weight: 500;
-            position: relative;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 50px;
         }
 
         nav a:hover {
-            background-color: #0e5220;
-            transform: translateY(-1px);
+            color: var(--primary);
+            background-color: #fff;
+            box-shadow: var(--shadow-sm);
         }
 
         nav a.active {
-            background-color: rgba(0, 0, 0, 0.25);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            background-image: url('Designer.png'); /* Make sure this exists */
+            /* Update 'Designer.png' to your actual image path */
+            background: linear-gradient(rgba(18, 51, 41, 0.85), rgba(18, 51, 41, 0.7)), url('Designer.png'); 
             background-size: cover;
             background-position: center;
-            min-height: 70vh;
+            padding: 80px 20px;
+            min-height: 650px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(130, 255, 132, 0.5), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(21, 87, 36, 0.8), rgba(0, 0, 0, 0.85));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
+        .hero-container {
+            max-width: 1200px;
             margin: 0 auto;
-            color: #ffffff;
-            text-align: left;
             display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-            gap: 32px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
             align-items: center;
+            width: 100%;
         }
 
-        .hero-main h2 {
-            margin: 0 0 10px;
-            font-size: 2.4rem;
+        .hero-text { color: var(--white); }
+
+        .hero-text h2 {
+            font-size: 3rem;
             font-weight: 700;
-            line-height: 1.2;
-            text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-main p {
-            margin: 0 0 24px;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #f1f3f5;
-        }
-
-        .hero-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 20px;
-            font-size: 0.9rem;
             margin-bottom: 20px;
+            color: var(--white);
+            letter-spacing: -1px;
         }
 
-        .hero-pill {
-            background: rgba(0, 0, 0, 0.35);
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #e0e7e3;
+            margin-bottom: 30px;
+            max-width: 90%;
         }
 
-        .hero-actions {
+        .hero-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 8px;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             border: none;
-            outline: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            text-decoration: none;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #82ff84, #28a745);
-            color: #0b2e13;
-            box-shadow: 0 8px 20px rgba(21, 87, 36, 0.35);
+            background-color: #2ecc71; /* Brighter green for CTA */
+            color: #0c3322;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 26px rgba(21, 87, 36, 0.45);
+            background-color: #27ae60;
+            transform: translateY(-2px);
         }
 
         .btn-outline {
             background: transparent;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
         }
 
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-1px);
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .hero-side-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 16px 18px;
+        /* Glassmorphism Card in Hero */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 16px;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .hero-side-card h3 {
-            margin: 0 0 10px;
-            font-size: 1rem;
-        }
+        .hero-card h3 { color: white; margin-bottom: 15px; font-size: 1.2rem; }
+        .hero-card p { font-size: 0.95rem; color: #d1d5db; margin-bottom: 20px; }
 
-        .hero-side-card p {
-            margin: 0 0 14px;
-            font-size: 0.85rem;
-            color: #e9ecef;
-        }
-
-        .hero-stat-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .hero-stat {
-            flex: 1;
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
             text-align: center;
-            border-radius: 12px;
-            padding: 8px 6px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
         }
 
-        .hero-stat strong {
-            display: block;
-            font-size: 1rem;
+        .stat-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 5px;
+            border-radius: 8px;
         }
 
-        .hero-stat span {
-            display: block;
-            font-size: 0.75rem;
-            color: #d1e7dd;
-        }
+        .stat-box strong { display: block; font-size: 1.1rem; color: #4ade80; }
+        .stat-box span { font-size: 0.75rem; color: #ccc; }
 
-        /* Main Layout */
-        main {
-            padding: 40px 20px 60px;
-        }
+        /* --- SECTIONS GENERAL --- */
+        .section { padding: 80px 20px; }
+        .bg-light { background-color: var(--bg-body); }
+        .bg-white { background-color: var(--white); }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section {
-            margin-bottom: 40px;
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 20px;
+        .badge {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
         }
 
         .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--muted);
+            font-size: 1.05rem;
+            color: var(--text-muted);
         }
 
-        /* About / Intro */
-        .intro {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            box-shadow: var(--shadow-soft);
-            line-height: 1.8;
-            font-size: 0.95rem;
+        /* --- ABOUT --- */
+        .about-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #f3f4f6;
         }
+        .about-box p { margin-bottom: 15px; }
+        .about-box p:last-child { margin-bottom: 0; }
 
-        .intro-highlight {
-            display: inline-block;
-            padding: 3px 9px;
-            background: rgba(21, 87, 36, 0.06);
-            border-radius: 999px;
-            font-size: 0.75rem;
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        /* Services Section */
-        .services {
+        /* --- SERVICES GRID --- */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 18px 18px 16px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid #f3f4f6;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            gap: 8px;
         }
 
         .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-            border-color: rgba(21, 87, 36, 0.25);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #a7f3d0;
         }
 
-        .service-icon {
-            font-size: 1.4rem;
-        }
-
-        .service-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #222;
-        }
-
-        .service-desc {
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        .service-tag {
-            margin-top: auto;
-            font-size: 0.8rem;
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-green);
             color: var(--primary);
-            font-weight: 500;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        /* Why Choose Us */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 14px;
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
         }
 
-        .why-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 14px 14px 12px;
-            box-shadow: var(--shadow-soft);
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-footer {
+            border-top: 1px solid #f3f4f6;
+            padding-top: 15px;
             font-size: 0.85rem;
-        }
-
-        .why-label {
-            font-size: 0.8rem;
-            color: var(--primary);
             font-weight: 600;
-            margin-bottom: 4px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .why-text {
-            color: var(--muted);
+        /* --- FEATURES --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
-        /* Testimonials Section */
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- TESTIMONIALS --- */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
-        .testimonial {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 16px 18px 14px;
-            box-shadow: var(--shadow-soft);
-            border-left: 4px solid var(--primary);
-            font-size: 0.9rem;
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
         }
 
-        .testimonial p {
-            margin: 0 0 10px;
+        .testimonial-card::before {
+            content: "“";
+            font-size: 4rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #e5e7eb;
+            font-family: serif;
+            z-index: 0;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
             font-style: italic;
-            color: #444;
+            color: #4b5563;
+            margin-bottom: 15px;
         }
 
-        .testimonial span {
-            display: block;
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
             text-align: right;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #222;
         }
 
-        /* CTA / Contact Strip */
-        .cta-strip {
-            margin-top: 24px;
-            padding: 16px 18px;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(135deg, rgba(130, 255, 132, 0.15), rgba(21, 87, 36, 0.08));
+        /* --- CTA STRIP --- */
+        .cta-box {
+            background: var(--primary);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            gap: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-box h3 { color: white; margin-bottom: 5px; }
+        .cta-box p { color: #a7f3d0; margin-bottom: 10px; }
+
+        .cta-link {
+            background: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .cta-link:hover {
+            background: #f0fdf4;
+            transform: scale(1.02);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111827; /* Dark Gray */
+            color: #9ca3af;
+            padding: 60px 20px 30px;
             font-size: 0.9rem;
         }
 
-        .cta-strip strong {
-            color: var(--primary);
-        }
-
-        .cta-strip a {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(90deg, #f4f4f9, #e4e4e4);
-            padding: 16px 20px 22px;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .footer-inner {
+        .footer-content {
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-            gap: 18px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        .footer-title {
-            font-weight: 600;
-            margin-bottom: 4px;
+        .footer-brand h4 { color: white; font-size: 1.2rem; margin-bottom: 15px; }
+        .footer-contact p { margin-bottom: 8px; }
+        .footer-contact a { color: #fff; opacity: 0.8; }
+        .footer-contact a:hover { opacity: 1; color: #4ade80; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
-        .footer-contact p {
-            margin: 2px 0;
-        }
-
-        .footer-contact a {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .footer-meta {
-            text-align: right;
-            color: var(--muted);
-        }
-
-        /* Back to Top Button */
+        /* Back to top */
         #back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: var(--accent);
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+            z-index: 100;
         }
-        #back-to-top:hover {
-            background-color: #1c7430;
-        }
+        #back-to-top:hover { transform: translateY(-3px); background-color: var(--accent); }
 
-        /* Responsive Design */
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            .hero-content {
-                grid-template-columns: minmax(0, 1fr);
-                text-align: center;
-            }
-            .hero-actions {
-                justify-content: center;
-            }
-            .hero-side-card {
-                max-width: 360px;
-                margin: 0 auto;
-            }
-            .header-inner {
-                justify-content: center;
-            }
-            .footer-inner {
-                grid-template-columns: minmax(0, 1fr);
-                text-align: left;
-            }
-            .footer-meta {
-                text-align: left;
-            }
+            .hero-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-tags, .btn-group { justify-content: center; }
+            .hero-card { max-width: 500px; margin: 0 auto; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .brand img {
-                height: 52px;
-            }
-            .brand-text h1 {
-                font-size: 1.05rem;
-            }
-            nav {
-                width: 100%;
-                justify-content: center;
-                border-radius: 999px;
-            }
-            .hero {
-                min-height: 60vh;
-            }
-            .hero-main h2 {
-                font-size: 1.9rem;
-                text-align: center;
-            }
-            .hero-main p {
-                text-align: center;
-            }
-            .hero-highlights {
-                justify-content: center;
-            }
-            .services {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            .why-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            .testimonials-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .header-container { flex-direction: column; gap: 15px; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap;}
+            .hero h2 { font-size: 2.2rem; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
         }
-
-        @media (max-width: 540px) {
-            .services {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .why-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .hero-main h2 {
-                font-size: 1.7rem;
-            }
-            main {
-                padding: 28px 14px 50px;
-            }
+        
+        @media (max-width: 500px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: 1fr; gap: 10px; }
         }
     </style>
+</head>
+<body>
+
+    <button id="back-to-top" title="Go to top">↑</button>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="Picture1.png" alt="Lee's Pro Transport LLC Logo">
+                <div class="logo-text">
+                    <h1>Lee's Pro Transport LLC</h1>
+                    <span>Dixon, IL • Freight & Logistics</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-tags">
+                    <span class="tag">24/7 Towing</span>
+                    <span class="tag">Freight Logistics</span>
+                    <span class="tag">Snow Removal</span>
+                </div>
+                <h2>Reliable Transport & Logistics Solutions.</h2>
+                <p>Serving Dixon, IL and surrounding areas with safe, efficient professional transportation — from emergency roadside assistance to complex freight management.</p>
+                
+                <div class="btn-group">
+                    <a href="tel:+17792518373" class="btn btn-primary">Call: (779) 251-8373</a>
+                    <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Service Snapshot</h3>
+                <p>From roadside emergencies to scheduled freight and local deliveries, we keep your business moving.</p>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <strong>24/7</strong>
+                        <span>Emergency</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>Full</strong>
+                        <span>Freight</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>Local</strong>
+                        <span>Dixon, IL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Who We Are</span>
+                <h2 class="section-title">Professional Roots in Dixon</h2>
+            </div>
+            <div class="about-box">
+                <p>Lee's Pro Transport LLC was founded to simplify transportation and logistics for our clients. Our operations are anchored in Dixon, a location that offers convenient access to major transportation routes, enabling efficient delivery, towing, and freight services.</p>
+                <p>As a fully licensed LLC, we provide flexibility in management, limited liability protection, and operational transparency — giving our customers and partners confidence that every job is handled professionally, safely, and with full accountability.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Our Expertise</span>
+                <h2 class="section-title">Core Services</h2>
+                <p class="section-subtitle">Comprehensive transportation solutions for individuals and businesses.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-wrapper">🚨</div>
+                    <h3>Towing Services</h3>
+                    <p>24/7 towing and roadside assistance, including accident recovery, winch outs, and junk car removal. We handle passenger cars and trucks with care.</p>
+                    <div class="service-footer">Available 24/7 • Emergency Support</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">🚚</div>
+                    <h3>Freight Transport</h3>
+                    <p>Efficient full-truckload (FTL) and less-than-truckload (LTL) freight services designed to keep your shipments moving on schedule.</p>
+                    <div class="service-footer">FTL & LTL • Regional Routes</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">📦</div>
+                    <h3>Local Delivery</h3>
+                    <p>General transportation and delivery services for businesses and individuals in Dixon and surrounding areas. Focused on reliability.</p>
+                    <div class="service-footer">Short-Haul • On-Time</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">📊</div>
+                    <h3>Logistics Mgmt</h3>
+                    <p>Practical logistics solutions to improve your supply chain efficiency, reduce delays, and coordinate transportation from pickup to delivery.</p>
+                    <div class="service-footer">Efficiency • Coordination</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">❄️</div>
+                    <h3>Snow Removal</h3>
+                    <p>Commercial snow removal and plowing services to keep driveways, parking lots, and access routes safe during winter weather.</p>
+                    <div class="service-footer">Seasonal • Plowing & Clearing</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">🏭</div>
+                    <h3>Storage Options</h3>
+                    <p>Secure indoor unheated and outdoor storage for rent to accommodate vehicles, equipment, or materials short-term or long-term.</p>
+                    <div class="service-footer">Indoor & Outdoor Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Lee's Pro?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>Safety First</h4>
+                    <p>Every job is handled with proper equipment and a focus on protecting your cargo.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Local Expertise</h4>
+                    <p>Based in Dixon, IL, with deep knowledge of local routes and regional needs.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Responsive</h4>
+                    <p>From emergency roadside calls to planned freight, we prioritize communication.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>One-Stop Shop</h4>
+                    <p>Towing, freight, delivery, snow removal, and storage — all in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Client Feedback</h2>
+            <br>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Lee's Pro Transport LLC provided exceptional service and ensured our goods were delivered on time and in perfect condition."</div>
+                    <div class="testimonial-author">- Tim</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Their logistics management solutions have significantly improved our supply chain efficiency. Highly recommend!"</div>
+                    <div class="testimonial-author">- Mike Werner</div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div>
+                    <h3>Ready to get moving?</h3>
+                    <p>Contact Lee's Pro Transport LLC today for a quote or emergency service.</p>
+                </div>
+                <div>
+                    <a href="tel:+17792518373" class="cta-link">Call (779) 251-8373</a>
+                    <a href="mailto:Leestransport95@gmail.com" class="cta-link" style="background: transparent; border: 2px solid white; color: white;">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Lee's Pro Transport LLC</h4>
+                <div class="footer-contact">
+                    <p>815 E 3rd St, Dixon, IL 61021</p>
+                    <p><a href="tel:+17792518373">(779) 251-8373</a></p>
+                    <p><a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
+                </div>
+            </div>
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
+                <p>Professional Towing, Freight & Logistics.</p>
+                <p style="opacity: 0.6;">Serving Dixon, Sterling, Rock Falls & Beyond.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Lee's Pro Transport LLC. All rights reserved.
+        </div>
+    </footer>
 
     <script>
+        // Back to Top Script
         document.addEventListener('DOMContentLoaded', () => {
-            const backToTop = document.createElement('button');
-            backToTop.id = 'back-to-top';
-            backToTop.innerHTML = '↑';
-            document.body.appendChild(backToTop);
-
+            const backToTop = document.getElementById('back-to-top');
+            
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 250) {
-                    backToTop.style.display = 'inline-flex';
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
                 } else {
                     backToTop.style.display = 'none';
                 }
@@ -611,219 +758,5 @@
             });
         });
     </script>
-</head>
-<body>
-    <header>
-        <div class="header-inner">
-            <div class="brand">
-                <img src="Picture1.png" alt="Lee's Pro Transport LLC Logo">
-                <div class="brand-text">
-                    <h1>Lee's Pro Transport LLC</h1>
-                    <span>Dixon, Illinois • Professional Towing & Freight Services</span>
-                </div>
-            </div>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="services.html">Services</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-main">
-                <h2>Reliable Towing, Freight & Local Transport You Can Trust.</h2>
-                <p>Serving Dixon, IL and surrounding areas with safe, efficient and professional transportation solutions — from 24/7 towing and roadside assistance to freight transportation, logistics management, snow removal, and storage.</p>
-
-                <div class="hero-highlights">
-                    <span class="hero-pill">24/7 High Quality Towing</span>
-                    <span class="hero-pill">Freight • Local Delivery • Logistics</span>
-                    <span class="hero-pill">Snow Removal & Storage Options</span>
-                </div>
-
-                <div class="hero-actions">
-                    <a href="tel:+17792518373" class="btn btn-primary">
-                        Call Now: (779) 251-8373
-                    </a>
-                    <a href="contact.html" class="btn btn-outline">
-                        Request a Quote
-                    </a>
-                </div>
-            </div>
-
-            <aside class="hero-side-card">
-                <h3>Service Snapshot</h3>
-                <p>From roadside emergencies to scheduled freight and local deliveries, Lee's Pro Transport LLC keeps your business and your vehicles moving.</p>
-                <div class="hero-stat-row">
-                    <div class="hero-stat">
-                        <strong>24/7</strong>
-                        <span>Towing & Roadside</span>
-                    </div>
-                    <div class="hero-stat">
-                        <strong>Multi-Service</strong>
-                        <span>Towing, Freight, Snow</span>
-                    </div>
-                    <div class="hero-stat">
-                        <strong>Dixon, IL</strong>
-                        <span>Local & Area Coverage</span>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <main>
-        <div class="container">
-            <!-- Intro / About -->
-            <section class="section">
-                <div class="section-header">
-                    <div>
-                        <div class="intro-highlight">About Lee's Pro Transport LLC</div>
-                        <h2 class="section-title">Professional Transportation Based in Dixon, Illinois</h2>
-                    </div>
-                </div>
-                <div class="intro">
-                    <p>Lee's Pro Transport LLC was founded to simplify transportation and logistics for our clients. Our operations are anchored in Dixon, a location that offers convenient access to major transportation routes, enabling efficient delivery, towing, and freight services.</p>
-                    <p>As an LLC, Lee's Pro Transport provides flexibility in management, limited liability protection, and operational transparency — giving our customers and partners confidence that every job is handled professionally, safely, and with full accountability.</p>
-                </div>
-            </section>
-
-            <!-- Services -->
-            <section class="section" id="services">
-                <div class="section-header">
-                    <h2 class="section-title">Our Core Services</h2>
-                    <p class="section-subtitle">Full-service transportation, towing, and seasonal support for individuals and businesses.</p>
-                </div>
-
-                <div class="services">
-                    <div class="service-card">
-                        <div class="service-icon">🚨</div>
-                        <div class="service-title">High Quality Towing Services</div>
-                        <div class="service-desc">
-                            24/7 towing and roadside assistance, including accident recovery, winch outs, and junk car removal. We can tow various vehicles, including passenger cars and trucks.
-                        </div>
-                        <div class="service-tag">Available 24/7 • Emergency Support</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🚚</div>
-                        <div class="service-title">Freight Transportation</div>
-                        <div class="service-desc">
-                            Efficient full-truckload (FTL) and less-than-truckload (LTL) freight services designed to keep your shipments moving on schedule with professional handling.
-                        </div>
-                        <div class="service-tag">FTL & LTL • Regional Routes</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">📦</div>
-                        <div class="service-title">Local Delivery Services</div>
-                        <div class="service-desc">
-                            General transportation and delivery services for businesses and individuals in Dixon and surrounding areas — focused on reliability and timely arrivals.
-                        </div>
-                        <div class="service-tag">Local & Short-Haul Deliveries</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <div class="service-title">Logistics Management</div>
-                        <div class="service-desc">
-                            Practical logistics solutions to improve your supply chain efficiency, reduce delays, and coordinate transportation from pickup to final delivery.
-                        </div>
-                        <div class="service-tag">Efficiency • Coordination • Support</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">❄️</div>
-                        <div class="service-title">Snow Removal Services</div>
-                        <div class="service-desc">
-                            Snow removal and plowing services to help keep your driveways, parking lots, and access routes safe and usable during winter weather.
-                        </div>
-                        <div class="service-tag">Seasonal • Plowing & Clearing</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🏭</div>
-                        <div class="service-title">Storage Options</div>
-                        <div class="service-desc">
-                            Indoor unheated and outside storage for rent to accommodate vehicles, equipment, or materials that need secure short-term or longer-term placement.
-                        </div>
-                        <div class="service-tag">Indoor & Outdoor Storage</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why Choose Us -->
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Why Clients Choose Lee's Pro Transport</h2>
-                    <p class="section-subtitle">Built on reliability, safety, and local expertise.</p>
-                </div>
-                <div class="why-grid">
-                    <div class="why-card">
-                        <div class="why-label">Safety First</div>
-                        <div class="why-text">Every tow, delivery, and freight job is handled with care, proper equipment, and a focus on protecting your vehicle or cargo.</div>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-label">Local & Regional Coverage</div>
-                        <div class="why-text">Based in Dixon, IL, with service routes designed to efficiently support local residents and area businesses.</div>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-label">Responsive Service</div>
-                        <div class="why-text">From emergency roadside calls to planned freight loads, we prioritize clear communication and on-time performance.</div>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-label">Flexible Solutions</div>
-                        <div class="why-text">Towing, freight, delivery, snow removal, and storage — all coordinated through one professional transportation partner.</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Testimonials -->
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">What Our Clients Say</h2>
-                    <p class="section-subtitle">Real feedback from customers who trust Lee's Pro Transport.</p>
-                </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial">
-                        <p>"Lee's Pro Transport LLC provided exceptional service and ensured our goods were delivered on time and in perfect condition."</p>
-                        <span>- Tim</span>
-                    </div>
-                    <div class="testimonial">
-                        <p>"Their logistics management solutions have significantly improved our supply chain efficiency. Highly recommend!"</p>
-                        <span>- Mike Werner</span>
-                    </div>
-                </div>
-
-                <div class="cta-strip">
-                    <div>
-                        <strong>Need towing, freight, or seasonal services?</strong><br>
-                        Contact Lee's Pro Transport LLC today to discuss your transportation needs or request a quote.
-                    </div>
-                    <div>
-                        <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a> ·
-                        <a href="tel:+17792518373">(779) 251-8373</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-contact">
-                <div class="footer-title">Lee's Pro Transport LLC</div>
-                <p>Address: 815 E 3rd St, Dixon, IL 61021</p>
-                <p>Phone: <a href="tel:+17792518373">+1 (779) 251-8373</a></p>
-                <p>Email: <a href="mailto:Leestransport95@gmail.com">Leestransport95@gmail.com</a></p>
-            </div>
-            <div class="footer-meta">
-                <p>&copy; 2025 Lee's Pro Transport LLC. All rights reserved.</p>
-                <p>Serving Dixon, IL and surrounding communities.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
